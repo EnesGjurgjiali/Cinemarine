@@ -8,6 +8,9 @@ import Seo from "components/Seo";
 
 export default function Movies() {
   const [movieFilter, setMovieFilter] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Filter by category first
   const filteredMovies =
     movieFilter === "all"
       ? movies.filter((m) => m.img.includes("/playing/"))
@@ -15,6 +18,17 @@ export default function Movies() {
           (m) =>
             m.img.includes("/playing/") && m.categories.includes(movieFilter)
         );
+
+  // Then filter by search term
+  const searchFilteredMovies = filteredMovies.filter((movie) => {
+    const term = searchTerm.trim().toLowerCase();
+    if (!term) return true;
+    return (
+      movie.title.toLowerCase().includes(term) ||
+      (movie.description && movie.description.toLowerCase().includes(term)) ||
+      (movie.lang && movie.lang.toLowerCase().includes(term))
+    );
+  });
 
   return (
     <>
@@ -37,6 +51,33 @@ export default function Movies() {
             <div className="container">
               <p className="section-subtitle">Currently Playing At</p>
               <h2 className="h2 section-title">CINEMARINE EUROPE</h2>
+              {/* Search Bar */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  margin: "32px 0 16px 0",
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Search movies..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  style={{
+                    width: 320,
+                    maxWidth: "100%",
+                    padding: "12px 18px",
+                    borderRadius: 8,
+                    border: "1.5px solid #232946",
+                    fontSize: 16,
+                    background: "#181f2f",
+                    color: "#fff",
+                    outline: "none",
+                  }}
+                  aria-label="Search movies"
+                />
+              </div>
               <ul className="filter-list">
                 {filterOptions.map((opt) => (
                   <li key={opt.value}>
@@ -52,35 +93,48 @@ export default function Movies() {
                 ))}
               </ul>
               <ul className="movies-list">
-                {filteredMovies.map((movie, idx) => (
-                  <li key={movie.title + idx}>
-                    <div className="movie-card">
-                      <Link href={`/movie-details/${movie.slug}`}>
-                        <figure className="card-banner">
-                          <img src={movie.img} alt={movie.title} />
-                        </figure>
-                      </Link>
-                      <div className="title-wrapper">
-                        <Link href={`/movie-details/${movie.slug}`}>
-                          <h3 className="card-title">{movie.title}</h3>
-                        </Link>
-                        <time dateTime="2022">{movie.lang}</time>
-                      </div>
-                      <div className="card-meta">
-                        <div className="badge badge-outline">
-                          {movie.badgeOutline}
-                        </div>
-                        <div className="badge badge-fill">
-                          {movie.badgeFill}
-                        </div>
-                        <div className="duration">
-                          <ion-icon name="time-outline"></ion-icon>
-                          <time dateTime={movie.time}>{movie.duration}</time>
-                        </div>
-                      </div>
-                    </div>
+                {searchFilteredMovies.length === 0 ? (
+                  <li
+                    style={{
+                      color: "#fff",
+                      textAlign: "center",
+                      width: "100%",
+                      padding: "40px 0",
+                    }}
+                  >
+                    No results found.
                   </li>
-                ))}
+                ) : (
+                  searchFilteredMovies.map((movie, idx) => (
+                    <li key={movie.title + idx}>
+                      <div className="movie-card">
+                        <Link href={`/movie-details/${movie.slug}`}>
+                          <figure className="card-banner">
+                            <img src={movie.img} alt={movie.title} />
+                          </figure>
+                        </Link>
+                        <div className="title-wrapper">
+                          <Link href={`/movie-details/${movie.slug}`}>
+                            <h3 className="card-title">{movie.title}</h3>
+                          </Link>
+                          <time dateTime="2022">{movie.lang}</time>
+                        </div>
+                        <div className="card-meta">
+                          <div className="badge badge-outline">
+                            {movie.badgeOutline}
+                          </div>
+                          <div className="badge badge-fill">
+                            {movie.badgeFill}
+                          </div>
+                          <div className="duration">
+                            <ion-icon name="time-outline"></ion-icon>
+                            <time dateTime={movie.time}>{movie.duration}</time>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  ))
+                )}
               </ul>
             </div>
           </section>
