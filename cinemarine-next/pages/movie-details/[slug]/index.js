@@ -5,6 +5,15 @@ import Seo from "components/Seo";
 import getTrailerLink from "utils/getTrailerLink";
 import movies from "data/movies";
 import styles from "./MovieDetail.module.css";
+import {
+  IoPlayCircleOutline,
+  IoArrowBackOutline,
+  IoTimeOutline,
+  IoLanguageOutline,
+  IoTicketOutline,
+  IoPlay,
+  IoShareSocialOutline,
+} from "react-icons/io5";
 
 export async function getStaticPaths() {
   return {
@@ -82,7 +91,7 @@ export default function MovieDetails({ movie }) {
                       cursor: "pointer",
                     }}
                   >
-                    <ion-icon name="play-circle-outline"></ion-icon>
+                    <IoPlayCircleOutline />
                   </button>
                 </a>
               )}
@@ -93,7 +102,7 @@ export default function MovieDetails({ movie }) {
             >
               <div style={{ marginBottom: 18 }}>
                 <Link href="/movies" className="back-to-movies-btn">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
+                  <IoArrowBackOutline />
                   <span className="back-text">Back to Movies</span>
                 </Link>
               </div>
@@ -102,7 +111,7 @@ export default function MovieDetails({ movie }) {
                 style={{
                   fontWeight: 700,
                   textTransform: "uppercase",
-                  color: isComingSoon ? "#f7c873" : "#89cff0",
+                  color: isComingSoon ? "var(--white-1)" : "#89cff0",
                   fontSize: 20,
                   marginBottom: 8,
                 }}
@@ -122,11 +131,11 @@ export default function MovieDetails({ movie }) {
                 </div>
                 <div className="date-time">
                   <div>
-                    <ion-icon name="time-outline"></ion-icon>
+                    <IoTimeOutline />
                     <time dateTime={movie.time}>{movie.duration}</time>
                   </div>
                   <div>
-                    <ion-icon name="language-outline"></ion-icon>
+                    <IoLanguageOutline />
                     <span>{movie.lang}</span>
                   </div>
                 </div>
@@ -139,17 +148,17 @@ export default function MovieDetails({ movie }) {
                 ))}
               </div>
               <p className="storyline">{movie.description}</p>
-              <div className="details-actions">
+              <div style={{ display: "flex", gap: 16 }}>
                 {!isComingSoon && (
                   <button className="btn btn-primary">
-                    <ion-icon name="ticket-outline"></ion-icon>
+                    <IoTicketOutline />
                     <span>Buy Tickets</span>
                   </button>
                 )}
                 {trailer && (
                   <a href={trailer} target="_blank" rel="noopener noreferrer">
                     <button className="btn btn-primary">
-                      <ion-icon name="play"></ion-icon>
+                      <IoPlay />
                       <span>Watch Trailer</span>
                     </button>
                   </a>
@@ -160,7 +169,7 @@ export default function MovieDetails({ movie }) {
                     navigator.clipboard.writeText(window.location.href);
                   }}
                 >
-                  <ion-icon name="share-social-outline"></ion-icon>
+                  <IoShareSocialOutline />
                   <span>Share</span>
                 </button>
               </div>

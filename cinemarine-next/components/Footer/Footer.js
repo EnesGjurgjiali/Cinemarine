@@ -1,5 +1,10 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import {
+  IoLocationOutline,
+  IoCallOutline,
+  IoMailOutline,
+} from "react-icons/io5";
 
 export default function Footer() {
   return (
@@ -16,13 +21,13 @@ export default function Footer() {
                   href="#"
                   className={`${styles.footerLink} ${styles.footerLocation}`}
                 >
-                  <ion-icon name="location-outline"></ion-icon>
+                  <IoLocationOutline />
                   ABI Çarshia, Rr. Tirana p.n., Prizren
                 </a>
               </li>
               <li>
                 <a href="#" className={styles.footerLink}>
-                  <ion-icon name="call-outline"></ion-icon>
+                  <IoCallOutline />
                   +38349137222
                 </a>
               </li>
@@ -32,7 +37,7 @@ export default function Footer() {
                   className={styles.footerLink}
                   style={{ textTransform: "lowercase" }}
                 >
-                  <ion-icon name="mail-outline"></ion-icon>
+                  <IoMailOutline />
                   info@cinemarine-eu.com
                 </a>
               </li>

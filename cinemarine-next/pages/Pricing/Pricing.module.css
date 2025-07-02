@@ -1,12 +1,17 @@
 /* Pricing.module.css */
-.pricing {
-  background: #181f2f;
-  padding-bottom: 80px;
+.subHeader {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url("/assets/img/banner.jpg");
 }
-.pricingInner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
+.subHeadingH1 {
+  text-align: center;
+  margin-bottom: 0;
+}
+.subHeadingH1 h1 {
+  font-size: 2.8rem;
+  color: var(--white-1);
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 .pricingCards {
   display: flex;
@@ -87,7 +92,7 @@
   justify-content: space-between;
 }
 .pricingList li strong {
-  color: #ffd700;
+  color: var(--white-1);
   font-size: 1.13rem;
   font-weight: 700;
   margin-left: 8px;
@@ -112,22 +117,22 @@
   width: 100%;
 }
 .situational .dividerCard {
-  border-bottom: 2.5px solid #ffd700;
+  border-bottom: 2.5px solid var(--white-1);
 }
 .situational .pricingTitle {
-  color: #ffd700;
+  color: var(--white-1);
 }
 .situational .pricingCardDays {
-  color: #ffd700;
+  color: var(--white-1);
 }
-.cardWeekdays {
+/* .cardWeekdays {
 }
 .cardWeekend {
 }
 .cardCinema {
 }
 .cardSituational {
-}
+} */
 @media (max-width: 900px) {
   .pricingCards {
     flex-direction: column;
@@ -137,8 +142,5 @@
   .pricingCard {
     max-width: 400px;
     width: 100%;
-  }
-  .pricingInner {
-    padding: 0 10px;
   }
 }

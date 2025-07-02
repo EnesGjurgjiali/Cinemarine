@@ -27,6 +27,11 @@
 .logo:hover {
   transform: scale(1.02);
 }
+.logo img {
+  max-width: 240px;
+  height: auto;
+  display: block;
+}
 .footerList {
   display: flex;
   flex-wrap: wrap;

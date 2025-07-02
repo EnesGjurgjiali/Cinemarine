@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import {
+  IoGlobeOutline,
+  IoReorderTwo,
+  IoCloseOutline,
+  IoLogoFacebook,
+  IoLogoInstagram,
+} from "react-icons/io5";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
@@ -38,7 +45,7 @@ export default function Header() {
         <div className="header-actions">
           <div className="lang-wrapper">
             <label htmlFor="language">
-              <ion-icon name="globe-outline"></ion-icon>
+              <IoGlobeOutline />
             </label>
             <select name="language" id="language">
               <option value="en">EN</option>
@@ -52,7 +59,7 @@ export default function Header() {
           data-menu-open-btn
           onClick={handleMenuOpen}
         >
-          <ion-icon name="reorder-two"></ion-icon>
+          <IoReorderTwo />
         </button>
         <nav className={`navbar${menuActive ? " active" : ""}`} data-navbar>
           <div className="navbar-top">
@@ -64,7 +71,7 @@ export default function Header() {
               data-menu-close-btn
               onClick={handleMenuClose}
             >
-              <ion-icon name="close-outline"></ion-icon>
+              <IoCloseOutline />
             </button>
           </div>
           <ul className="navbar-list">
@@ -92,12 +99,12 @@ export default function Header() {
           <ul className="navbar-social-list">
             <li>
               <a href="#" className="navbar-social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
+                <IoLogoFacebook />
               </a>
             </li>
             <li>
               <a href="#" className="navbar-social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
+                <IoLogoInstagram />
               </a>
             </li>
           </ul>

@@ -8,6 +8,14 @@ import Footer from "components/Footer/Footer";
 import movies from "data/movies";
 import filterOptions from "data/filters";
 import Seo from "components/Seo";
+import {
+  IoChevronBackOutline,
+  IoChevronForwardOutline,
+  IoTimeOutline,
+  IoTv,
+  IoVideocam,
+  IoChevronUp,
+} from "react-icons/io5";
 
 export default function Home() {
   // State for menu
@@ -124,7 +132,7 @@ export default function Home() {
                     }}
                     onClick={() => scrollUpcoming("left")}
                   >
-                    <ion-icon name="chevron-back-outline"></ion-icon>
+                    <IoChevronBackOutline />
                   </button>
                   <button
                     aria-label="Scroll right"
@@ -137,7 +145,7 @@ export default function Home() {
                     }}
                     onClick={() => scrollUpcoming("right")}
                   >
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                    <IoChevronForwardOutline />
                   </button>
                 </div>
               </div>
@@ -168,7 +176,7 @@ export default function Home() {
                           {movie.badgeFill}
                         </div>
                         <div className="duration">
-                          <ion-icon name="time-outline"></ion-icon>
+                          <IoTimeOutline />
                           <time>{movie.duration}</time>
                         </div>
                       </div>
@@ -196,7 +204,7 @@ export default function Home() {
                   <li>
                     <div className="service-card">
                       <div className="card-icon">
-                        <ion-icon name="tv"></ion-icon>
+                        <IoTv />
                       </div>
                       <div className="card-content">
                         <h3 className="h3 card-title">Enjoy on Big Screen.</h3>
@@ -206,7 +214,7 @@ export default function Home() {
                   <li>
                     <div className="service-card">
                       <div className="card-icon">
-                        <ion-icon name="videocam"></ion-icon>
+                        <IoVideocam />
                       </div>
                       <div className="card-content">
                         <h3 className="h3 card-title">
@@ -262,7 +270,7 @@ export default function Home() {
                           {movie.badgeFill}
                         </div>
                         <div className="duration">
-                          <ion-icon name="time-outline"></ion-icon>
+                          <IoTimeOutline />
                           <time dateTime={movie.time}>{movie.duration}</time>
                         </div>
                       </div>
@@ -307,7 +315,7 @@ export default function Home() {
         data-go-top
         style={{ position: "fixed", right: 20, bottom: 20, zIndex: 1000 }}
       >
-        <ion-icon name="chevron-up"></ion-icon>
+        <IoChevronUp />
       </a>
     </>
   );

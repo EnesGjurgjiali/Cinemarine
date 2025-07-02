@@ -1,4 +1,6 @@
-/*  860 MOVIE-DETAIL PAGE   */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/*  MOVIE-DETAIL PAGE   */
 
 :root {
   --default: #02010f;
@@ -6,9 +8,11 @@
   --primary-2: #89cff0;
   --primary-3: #030022;
   --secondary: #da291c;
-  --white: #f5f5dc;
+  --white: #fff;
+  --white-1: #fbf9fa;
 
   --ff-poppins: "Poppins", sans-serif;
+  --ff-inter: "Inter", sans-serif;
 
   --fs-1: 36px;
   --fs-2: 32px;
@@ -87,13 +91,34 @@ button {
   cursor: pointer;
 }
 
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+li,
+button,
+input,
+textarea,
+label,
+div {
+  font-family: var(--ff-inter), Arial, Helvetica, sans-serif !important;
+}
+
 html {
-  font-family: var(--ff-poppins);
+  font-family: var(--ff-inter), var(--ff-poppins), Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--default);
+  font-family: var(--ff-inter), var(--ff-poppins), Arial, Helvetica, sans-serif;
 }
 
 body.active {
@@ -148,7 +173,7 @@ body.active {
 }
 
 .badge-fill {
-  background: #f7c873;
+  background: var(--white-1);
   color: #232946;
   font-weight: 700;
   border: none;
@@ -183,13 +208,13 @@ body.active {
 }
 
 .badge-outline {
-  border-color: #fff;
-  color: #fff;
+  border-color: var(--white-1);
+  color: var(--white-1);
   background: transparent;
 }
 .badge-outline.lang {
-  border-color: #f7c873;
-  color: #f7c873;
+  border-color: var(--white-1);
+  color: var(--white-1);
 }
 
 .meta-wrapper {
@@ -283,7 +308,7 @@ body.active {
 /* Share button special color */
 .btn-primary.share {
   background: #232946;
-  color: #f7c873;
+  color: var(--white-1);
 }
 .btn-primary.share:is(:hover, :focus) {
   background: #11131a;
