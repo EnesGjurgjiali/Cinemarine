@@ -1,0 +1,144 @@
+/* Pricing.module.css */
+.pricing {
+  background: #181f2f;
+  padding-bottom: 80px;
+}
+.pricingInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.pricingCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 40px 0 0 0;
+}
+.pricingCard {
+  background: #232946;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(20, 22, 40, 0.13);
+  padding: 36px 30px 32px 30px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border: 1.5px solid #232946;
+  transition: box-shadow 0.18s, border 0.18s, transform 0.18s;
+}
+.pricingCard:hover {
+  box-shadow: 0 8px 32px 0 rgba(20, 22, 40, 0.22);
+  border: 1.5px solid #2563eb;
+  transform: translateY(-4px) scale(1.02);
+  z-index: 2;
+}
+.bestValue {
+  border: 2px solid #2563eb;
+}
+.badgeBest {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin-left: 10px;
+  letter-spacing: 0.5px;
+  box-shadow: none;
+}
+.pricingCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.pricingTitle {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.pricingCardDays {
+  color: #b3b8c7;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+.pricingList {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.pricingList li {
+  color: #f7f7fa;
+  font-size: 1.04rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pricingList li strong {
+  color: #ffd700;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-left: 8px;
+}
+.ticketType {
+  color: #2563eb;
+  font-size: 1.04rem;
+  font-weight: 700;
+  margin: 12px 0 4px 0;
+  letter-spacing: 0.5px;
+}
+.ticketType ion-icon {
+  margin-right: 6px;
+  color: #2563eb;
+  font-size: 1.1em;
+  opacity: 0.8;
+}
+.dividerCard {
+  border-bottom: 2.5px solid #2563eb;
+  margin: 10px 0 10px 0;
+  height: 0;
+  width: 100%;
+}
+.situational .dividerCard {
+  border-bottom: 2.5px solid #ffd700;
+}
+.situational .pricingTitle {
+  color: #ffd700;
+}
+.situational .pricingCardDays {
+  color: #ffd700;
+}
+.cardWeekdays {
+}
+.cardWeekend {
+}
+.cardCinema {
+}
+.cardSituational {
+}
+@media (max-width: 900px) {
+  .pricingCards {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .pricingCard {
+    max-width: 400px;
+    width: 100%;
+  }
+  .pricingInner {
+    padding: 0 10px;
+  }
+}
